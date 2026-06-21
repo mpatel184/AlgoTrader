@@ -1,0 +1,79 @@
+# ─── Python / FastAPI backend ────────────────────────────────────────────────
+backend/venv/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── Local database (regenerates + seeds on startup) ─────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+backend/trading.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ─── Secrets / environment ───────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+# Auto-generated dev encryption key (production uses BROKER_SECRET_KEY env var)
+.secret_key
+backend/.secret_key
+
+# ─── Node / Vite frontend ────────────────────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+dist-ssr/
+*.local
+.vite/
+.cache/
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── Editor / IDE ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── OS cruft ────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ─── Local agent / editor settings ───────────────────────────────────────────
+.claude/
+
+# Local Claude Code project doc (not for the repo)
+CLAUDE.md

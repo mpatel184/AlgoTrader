@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html, body, #root { height: 100%; margin: 0; }
+  body {
+    background-color: #0a0b0f;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #111318; }
+  ::-webkit-scrollbar-thumb { background: #1e2235; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2d3250; }
+}
+
+@layer components {
+  .card {
+    @apply bg-[#161a24] border border-[#1e2235] rounded-xl p-4;
+  }
+  /* Glassmorphism — premium frosted panels (Bloomberg/TradingView inspired) */
+  .glass {
+    @apply backdrop-blur-xl border rounded-2xl;
+    background: linear-gradient(160deg, rgba(30,34,53,0.55) 0%, rgba(13,15,22,0.55) 100%);
+    border-color: rgba(255,255,255,0.06);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+  .glass-card {
+    @apply glass p-5 transition-all duration-300;
+  }
+  .glass-card:hover {
+    border-color: rgba(99,102,241,0.25);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(99,102,241,0.12), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .glass-hover {
+    @apply transition-all duration-200 hover:bg-white/[0.03];
+  }
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium
+           transition-all duration-150 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg font-medium
+           transition-all duration-150 active:scale-95 disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg font-medium
+           transition-all duration-150 active:scale-95 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply text-gray-400 hover:text-white hover:bg-[#1e2235] px-3 py-2 rounded-lg
+           transition-all duration-150;
+  }
+  .input {
+    @apply bg-[#111318] border border-[#1e2235] text-white rounded-lg px-3 py-2 w-full
+           focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+           transition-colors placeholder-gray-600;
+  }
+  .select {
+    @apply bg-[#111318] border border-[#1e2235] text-white rounded-lg px-3 py-2 w-full
+           focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500
+           transition-colors cursor-pointer;
+  }
+  .badge-buy {
+    @apply bg-green-500/20 text-green-400 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+  .badge-sell {
+    @apply bg-red-500/20 text-red-400 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+  .badge-hold {
+    @apply bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+  .table-row {
+    @apply border-b border-[#1e2235] hover:bg-[#1a1d2a] transition-colors;
+  }
+}
+
+.glow-green { box-shadow: 0 0 20px #22c55e22; }
+.glow-red { box-shadow: 0 0 20px #ef444422; }
+.glow-indigo { box-shadow: 0 0 20px #6366f133; }
+
+.price-up { color: #22c55e; }
+.price-down { color: #ef4444; }
+.price-neutral { color: #94a3b8; }
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse-green { animation: pulse-green 2s ease-in-out infinite; }
+
+@keyframes slide-in {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in { animation: slide-in 0.2s ease-out; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Ambient app background — subtle premium glow */
+.app-bg {
+  background-color: #0a0b0f;
+  background-image:
+    radial-gradient(60rem 60rem at 85% -10%, rgba(99,102,241,0.10), transparent 60%),
+    radial-gradient(50rem 50rem at -10% 110%, rgba(34,197,94,0.06), transparent 60%);
+  background-attachment: fixed;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #161a24 0%, #1e2235 50%, #161a24 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
